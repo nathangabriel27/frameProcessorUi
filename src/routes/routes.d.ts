@@ -2,6 +2,9 @@
 export type AppRoutesParams = {
     Home: any;
     Document: any;
-    Details: any;
+    Reanimated: any;
     CameraScreen: any;
+    QrCodeScreen: any;
+    OCRScreen: any;
+    BorderScreen: any;
 };

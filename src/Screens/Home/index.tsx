@@ -9,8 +9,8 @@ import { colors } from '../../utils/theme';
 export default function Home() {
   const navigate = useAppNavigation()
 
-  function navigateToDetails() {
-    navigate.navigate('Details')
+  function navigateToRanimated() {
+    navigate.navigate('Reanimated')
   }
   function navigateToCamera() {
     navigate.navigate('CameraScreen')
@@ -19,15 +19,15 @@ export default function Home() {
   return (<>
     <Pressable
       style={styles.containerButton}
-      onPress={() => navigateToDetails()}
+      onPress={() => navigateToRanimated()}
     >
-      <Title text='Navegar para tela de Detalhes' color={colors.shape} />
+      <Title text='Reanimated' color={colors.shape} />
     </Pressable>
     <Pressable
       style={styles.containerButton}
       onPress={() => navigateToCamera()}
     >
-      <Title text='Navegar para tela de Camera' color={colors.shape} />
+      <Title text='Camera Padrão' color={colors.shape} />
     </Pressable>
   </>
 
