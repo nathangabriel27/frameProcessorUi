@@ -1,12 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 
-
-import {
-    AppRoutesParams,
-} from '../routes/routes';
 import { StackNavigationProp } from '@react-navigation/stack';
-
-
+import { AppRoutesParams } from '../../routes/routes';
 
 export function useAppNavigation() {
     const navigation = useNavigation<StackNavigationProp<AppRoutesParams>>();
