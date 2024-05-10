@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, LayoutChangeEvent, PixelRatio, Platform, Pressable } from 'react-native';
 import styles from './styles';
 import { Title } from '../../components/Title';
@@ -6,8 +6,10 @@ import { Camera, useCameraDevice, useFrameProcessor } from 'react-native-vision-
 
 import { runOnJS, useSharedValue } from 'react-native-reanimated';
 import { RenderOverlayIOS } from './Components/RenderOverlay';
+import { useIsFocused } from '@react-navigation/native';
 
 export default function OCRScreen() {
+  const isFocused = useIsFocused();
   const device = useCameraDevice('back')
   const cameraRef = useRef<Camera>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -16,7 +18,6 @@ export default function OCRScreen() {
   const [ocrDetect, setOcrDetect] = useState<boolean>(true);
   const ocrFrameValue = useSharedValue<number>(0);
   const [pixelRatio, setPixelRatio] = useState<number>(1);
-
 
   const frameProcessor = useFrameProcessor((frame) => {
     'worklet';
@@ -42,7 +43,7 @@ export default function OCRScreen() {
         style={styles.camera}
         device={device}
         torch={'off'}
-        isActive={true}
+        isActive={isFocused}
         frameProcessor={frameProcessor}
         onLayout={(event: LayoutChangeEvent) => {
           setPixelRatio(
