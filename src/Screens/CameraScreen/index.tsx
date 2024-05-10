@@ -11,7 +11,6 @@ export default function CameraScreen() {
   const navigate = useAppNavigation()
   const device = useCameraDevice('back')
 
-
   function navigateGoBack() {
     navigate.goBack()
   }

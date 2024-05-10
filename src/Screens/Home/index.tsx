@@ -1,9 +1,10 @@
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable } from 'react-native';
 import { useAppNavigation } from '../../hooks/navigation';
 import styles from './styles';
 import { Title } from '../../components/Title';
 import { colors } from '../../utils/theme';
+import { checkPermissionCam, checkPermissionMic } from '../../functions/permissions';
 
 
 export default function Home() {
@@ -14,6 +15,16 @@ export default function Home() {
   }
   function navigateToCamera() {
     navigate.navigate('CameraScreen')
+  }
+  function navigateToOCRScreen() {
+    navigate.navigate('OCRSceen')
+  }
+
+  function handleCheckPermissionCam() {
+    checkPermissionCam()
+  }
+  function handleCheckPermissionMic() {
+    checkPermissionMic()
   }
 
   return (<>
@@ -28,6 +39,24 @@ export default function Home() {
       onPress={() => navigateToCamera()}
     >
       <Title text='Camera Padrão' color={colors.shape} />
+    </Pressable>
+    <Pressable
+      style={styles.containerButton}
+      onPress={() => navigateToOCRScreen()}
+    >
+      <Title text='OCR Scren' color={colors.shape} />
+    </Pressable>
+    <Pressable
+      style={[styles.containerButton, { backgroundColor: colors.primary }]}
+      onPress={() => handleCheckPermissionCam()}
+    >
+      <Title text='Checar permissão Camera' color={colors.shape} />
+    </Pressable>
+    <Pressable
+      style={[styles.containerButton, { backgroundColor: colors.primary }]}
+      onPress={() => handleCheckPermissionMic()}
+    >
+      <Title text='Checar permissão Microfone' color={colors.shape} />
     </Pressable>
   </>
 

@@ -1,10 +1,16 @@
 
-import { Camera, useCameraDevice, useCameraPermission } from 'react-native-vision-camera';
+import { Camera } from 'react-native-vision-camera';
 
 export const checkPermissionCam = async () => {
-    console.log('Check permission');
     const camPermission = await Camera.requestCameraPermission()
+    console.log('checkPermissionCam:', camPermission);
+    return camPermission
+}
+
+export const checkPermissionMic = async () => {
     const microphonePermission = await Camera.requestMicrophonePermission()
+    console.log('checkPermissionMic:', microphonePermission);
+    return microphonePermission
 }
 
 
