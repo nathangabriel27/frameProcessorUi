@@ -6,7 +6,6 @@ import { Title } from '../../components/Title';
 import { colors } from '../../utils/theme';
 import { checkPermissionCam, checkPermissionMic } from '../../functions/permissions';
 
-
 export default function Home() {
   const navigate = useAppNavigation()
 
@@ -17,7 +16,10 @@ export default function Home() {
     navigate.navigate('CameraScreen')
   }
   function navigateToOCRScreen() {
-    navigate.navigate('OCRSceen')
+    navigate.navigate('OCRScreen')
+  }
+  function navigateToObjScreen() {
+    navigate.navigate('CameraScreenModelObject')
   }
 
   function handleCheckPermissionCam() {
@@ -27,6 +29,7 @@ export default function Home() {
     checkPermissionMic()
   }
 
+  // {"bottom": 0.6093349456787109, "left": 0.0031332969665527344, "right": 0.9968667030334473, "top": -0.009334921836853027}
   return (<>
     <Pressable
       style={styles.containerButton}
@@ -39,6 +42,12 @@ export default function Home() {
       onPress={() => navigateToCamera()}
     >
       <Title text='Camera Padrão' color={colors.shape} />
+    </Pressable>
+    <Pressable
+      style={styles.containerButton}
+      onPress={() => navigateToObjScreen()}
+    >
+      <Title text='Reconhecimento Objetos' color={colors.shape} />
     </Pressable>
     <Pressable
       style={styles.containerButton}
@@ -59,6 +68,5 @@ export default function Home() {
       <Title text='Checar permissão Microfone' color={colors.shape} />
     </Pressable>
   </>
-
   );
 }

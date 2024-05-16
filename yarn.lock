@@ -2731,6 +2731,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shopify/react-native-skia@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "@shopify/react-native-skia@npm:1.2.3"
+  dependencies:
+    canvaskit-wasm: 0.39.1
+    react-reconciler: 0.27.0
+  peerDependencies:
+    react: ">=18.0"
+    react-native: ">=0.64"
+    react-native-reanimated: ">=2.0.0"
+  peerDependenciesMeta:
+    react-native:
+      optional: true
+    react-native-reanimated:
+      optional: true
+  bin:
+    setup-skia-web: scripts/setup-canvaskit.js
+  checksum: 9fd9dc0546c32b153171265d0932b27e10d3755e8befceb3daaecd649fb2a2d6e9972ffd8f88759e10112fb21c95a119da8fc06c62d6df30615d99aa3ea0425a
+  languageName: node
+  linkType: hard
+
 "@sideway/address@npm:^4.1.5":
   version: 4.1.5
   resolution: "@sideway/address@npm:4.1.5"
@@ -3132,6 +3153,13 @@ __metadata:
   version: 1.2.0
   resolution: "@ungap/structured-clone@npm:1.2.0"
   checksum: 4f656b7b4672f2ce6e272f2427d8b0824ed11546a601d8d5412b9d7704e83db38a8d9f402ecdf2b9063fc164af842ad0ec4a55819f621ed7e7ea4d1efcc74524
+  languageName: node
+  linkType: hard
+
+"@webgpu/types@npm:0.1.21":
+  version: 0.1.21
+  resolution: "@webgpu/types@npm:0.1.21"
+  checksum: b16ddc4d46a3c507a7f243f14b08b96ebbdb4495f9ea703441ad3525dd5e7e4a5f743f2879e51d74c78846f950e7d60c1349670f75cb7ca03ac3ddf51d46aabe
   languageName: node
   linkType: hard
 
@@ -3785,6 +3813,15 @@ __metadata:
   version: 1.0.30001617
   resolution: "caniuse-lite@npm:1.0.30001617"
   checksum: a03bfd6ed474d14378f1b93bf90e9b0031e56a813cf42b364e5a86881ecdcdfdd58bf94c56febb0e4128c5ab57cc0a760ab7f3ef7ce0c1ead1af78a8e806375e
+  languageName: node
+  linkType: hard
+
+"canvaskit-wasm@npm:0.39.1":
+  version: 0.39.1
+  resolution: "canvaskit-wasm@npm:0.39.1"
+  dependencies:
+    "@webgpu/types": 0.1.21
+  checksum: da62926fc81f424a781e148b4d76bb5fc9b0188f136090b3b287522dc653cb002bfb406e2eff45b55fcc1cafbc7629f988e20ad6c777bab85c1bb09e1091a5e2
   languageName: node
   linkType: hard
 
@@ -5174,6 +5211,7 @@ __metadata:
     "@react-native/typescript-config": 0.74.83
     "@react-navigation/native": ^6.1.17
     "@react-navigation/stack": ^6.3.29
+    "@shopify/react-native-skia": ^1.2.3
     "@types/react": ^18.2.6
     "@types/react-test-renderer": ^18.0.0
     babel-jest: ^29.6.3
@@ -5182,6 +5220,7 @@ __metadata:
     prettier: 2.8.8
     react: 18.2.0
     react-native: ^0.73.6
+    react-native-fast-tflite: ^1.2.0
     react-native-gesture-handler: ^2.16.2
     react-native-reanimated: ^3.11.0
     react-native-safe-area-context: ^4.10.1
@@ -5190,6 +5229,7 @@ __metadata:
     react-native-worklets-core: ^1.3.2
     react-test-renderer: 18.2.0
     typescript: 5.0.4
+    vision-camera-resize-plugin: ^3.1.0
   languageName: unknown
   linkType: soft
 
@@ -8213,6 +8253,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-fast-tflite@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "react-native-fast-tflite@npm:1.2.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: b4b7f567adb8232acc8e5ec42579300ede65803dfa8fdad684a9bf54de5bc9cd0f61e6427e1ef882813d26cbeba7d0392b462098f5c910f143db005476d1e4e0
+  languageName: node
+  linkType: hard
+
 "react-native-gesture-handler@npm:^2.16.2":
   version: 2.16.2
   resolution: "react-native-gesture-handler@npm:2.16.2"
@@ -8351,6 +8401,18 @@ __metadata:
   bin:
     react-native: cli.js
   checksum: e6701ffed6c23f04f8a7336a3011b205ff05c069e5febfcd2b8026ca2b3633fb5716b0a024a0a81390a04f025fa16eb9068131b0851c669784a5dd0c9bc99fd7
+  languageName: node
+  linkType: hard
+
+"react-reconciler@npm:0.27.0":
+  version: 0.27.0
+  resolution: "react-reconciler@npm:0.27.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    scheduler: ^0.21.0
+  peerDependencies:
+    react: ^18.0.0
+  checksum: c2ae111f150c2a46970182df12ea8254719fdfec5e26574711b1838fc37863c63671460a351570fd359c088d891e7bb0ff89023c2f7c1582393b57dd517b92c2
   languageName: node
   linkType: hard
 
@@ -8739,6 +8801,15 @@ __metadata:
   dependencies:
     loose-envify: ^1.1.0
   checksum: 232149125c10f10193b1340ec4bbf14a8e6a845152790d6fd6f58207642db801abdb5a21227561a0a93871b98ba47539a6233b4e6155aae72d6db6db9f9f09b3
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.21.0":
+  version: 0.21.0
+  resolution: "scheduler@npm:0.21.0"
+  dependencies:
+    loose-envify: ^1.1.0
+  checksum: 4f8285076041ed2c81acdd1faa987f1655fdbd30554bc667c1ea64743fc74fb3a04ca7d27454b3d678735df5a230137a3b84756061b43dc5796e80701b66d124
   languageName: node
   linkType: hard
 
@@ -9711,6 +9782,18 @@ __metadata:
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: ae0123222c6df65b437669d63dfa8c36cee20a504101b2fcd97b8bf76f91259c17f9f2b4d70a1e3c6bbcee7f51b28392833adb6b2770b23b01abec84e369660b
+  languageName: node
+  linkType: hard
+
+"vision-camera-resize-plugin@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "vision-camera-resize-plugin@npm:3.1.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-vision-camera: ">=4.0.1"
+    react-native-worklets-core: ">=1.2.0"
+  checksum: 34187b1f18987f22a4260fff2a3267eb0f4ecbd121b949cbb7bc41ef7b3b26d9a50632ba6ddfc7d00eedcef248d11ad58f676541a71d835a41635a0579790a9b
   languageName: node
   linkType: hard
 

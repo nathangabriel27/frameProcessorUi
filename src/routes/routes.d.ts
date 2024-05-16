@@ -7,4 +7,5 @@ export type AppRoutesParams = {
     QrCodeScreen: any;
     OCRScreen: any;
     BorderScreen: any;
+    CameraScreenModelObject: any;
 };
