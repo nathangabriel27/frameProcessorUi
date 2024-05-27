@@ -9,4 +9,5 @@ export type AppRoutesParams = {
     BorderScreen: any;
     CameraScreenModelObject: any;
     CameraAnimais: any;
+    CameraTestScreen: any;
 };

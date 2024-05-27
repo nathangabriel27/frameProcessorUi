@@ -24,6 +24,9 @@ export default function Home() {
   function navigateToObjScreen() {
     navigate.navigate('CameraScreenModelObject')
   }
+  function navigateToCameraTestScreen() {
+    navigate.navigate('CameraTestScreen')
+  }
 
   function handleCheckPermissionCam() {
     checkPermissionCam()
@@ -57,6 +60,13 @@ export default function Home() {
       onPress={() => navigateToObjScreen()}
     >
       <Title text='Reconhecimento Objetos' color={colors.shape} />
+    </Pressable>
+
+    <Pressable
+      style={[styles.containerButton, { backgroundColor: colors.yellow }]}
+      onPress={() => navigateToCameraTestScreen()}
+    >
+      <Title text='Camera Jordy' color={colors.shape} />
     </Pressable>
 {/*     <Pressable
       style={styles.containerButton}
