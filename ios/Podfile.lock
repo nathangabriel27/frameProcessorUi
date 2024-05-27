@@ -898,7 +898,7 @@ PODS:
     - React
     - React-callinvoker
     - React-Core
-  - react-native-worklets-core (1.3.2):
+  - react-native-worklets-core (1.3.3):
     - React
     - React-callinvoker
     - React-Core
@@ -1089,16 +1089,16 @@ PODS:
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
     - VisionCamera
-  - VisionCamera (4.0.3):
-    - VisionCamera/Core (= 4.0.3)
-    - VisionCamera/FrameProcessors (= 4.0.3)
-    - VisionCamera/React (= 4.0.3)
-  - VisionCamera/Core (4.0.3)
-  - VisionCamera/FrameProcessors (4.0.3):
+  - VisionCamera (4.0.5):
+    - VisionCamera/Core (= 4.0.5)
+    - VisionCamera/FrameProcessors (= 4.0.5)
+    - VisionCamera/React (= 4.0.5)
+  - VisionCamera/Core (4.0.5)
+  - VisionCamera/FrameProcessors (4.0.5):
     - React
     - React-callinvoker
     - react-native-worklets-core
-  - VisionCamera/React (4.0.3):
+  - VisionCamera/React (4.0.5):
     - React-Core
     - VisionCamera/FrameProcessors
   - Yoga (1.14.0)
@@ -1321,7 +1321,7 @@ SPEC CHECKSUMS:
   react-native-fast-tflite: 2c25e2d7e25ec9f40ad5a3bea7b1110cbe119779
   react-native-safe-area-context: dcab599c527c2d7de2d76507a523d20a0b83823d
   react-native-skia: 3ac80cc6de9c33e0a02b3a7b66c29dc6b6286211
-  react-native-worklets-core: ff4a4076ad86469e61ec8e39da2cb13c55da2385
+  react-native-worklets-core: f51430dd07bf5343d4918d28a4bb00fe8f98b982
   React-nativeconfig: 2e44d0d2dd222b12a5183f4bcaa4a91881497acb
   React-NativeModulesApple: 8aa032fe6c92c1a3c63e4809d42816284a56a9b0
   React-perflogger: f9367428cf475f4606b5965c1d5a71781bb95299
@@ -1347,9 +1347,9 @@ SPEC CHECKSUMS:
   RNScreens: 134a7511b12b8eb440b87aac21e36a71295d6024
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   vision-camera-resize-plugin: cc79703dc2228784406f618c4fb9d0034ec03733
-  VisionCamera: b633f90960feab2669b7a1c51f8a201dd0a5bfc3
+  VisionCamera: 4c1d19f1ac09f2f42f758e306fcf642536627357
   Yoga: e5b887426cee15d2a326bdd34afc0282fc0486ad
 
-PODFILE CHECKSUM: 3466d95f8433ec4cecd56e7223f17b3af1de00a9
+PODFILE CHECKSUM: a22caba248fbdf8fba28b948198dc653d68c5fd9
 
 COCOAPODS: 1.15.2

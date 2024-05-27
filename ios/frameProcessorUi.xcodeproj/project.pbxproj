@@ -41,6 +41,7 @@
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-frameProcessorUi-frameProcessorUiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-frameProcessorUi-frameProcessorUiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-frameProcessorUi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-frameProcessorUi.debug.xcconfig"; path = "Target Support Files/Pods-frameProcessorUi/Pods-frameProcessorUi.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-frameProcessorUi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-frameProcessorUi.release.xcconfig"; path = "Target Support Files/Pods-frameProcessorUi/Pods-frameProcessorUi.release.xcconfig"; sourceTree = "<group>"; };
+		592C77E42BFE778900E070C4 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		5B7EB9410499542E8C5724F5 /* Pods-frameProcessorUi-frameProcessorUiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-frameProcessorUi-frameProcessorUiTests.debug.xcconfig"; path = "Target Support Files/Pods-frameProcessorUi-frameProcessorUiTests/Pods-frameProcessorUi-frameProcessorUiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-frameProcessorUi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-frameProcessorUi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7782F7A4CC887F892A7F9C89 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = frameProcessorUi/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				592C77E42BFE778900E070C4 /* CoreML.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-frameProcessorUi.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-frameProcessorUi-frameProcessorUiTests.a */,
@@ -419,6 +421,7 @@
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-frameProcessorUi-frameProcessorUiTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3KG34L3Q54;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -447,6 +450,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 3KG34L3Q54;
 				INFOPLIST_FILE = frameProcessorUiTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -487,8 +491,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.frameProcessorUI;
 				PRODUCT_NAME = frameProcessorUi;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -514,7 +521,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.frameProcessorUI;
 				PRODUCT_NAME = frameProcessorUi;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

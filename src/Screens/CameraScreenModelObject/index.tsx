@@ -52,14 +52,14 @@ export default function CameraScreenModelObject() {
 
   const runJsUpdateView = Worklets.createRunOnJS((data: DataJSProps) => {
     // Animated View
-    valueTop.value = withSpring(data.bottom);
-    valueBottom.value = withSpring(data.top);
-    valueRight.value = withSpring(data.left);
-    valueLeft.value = withSpring(data.right );
+    valueTop.value = withSpring(data.top);
+    valueBottom.value = withSpring(data.bottom);
+    valueRight.value = withSpring(data.right);
+    valueLeft.value = withSpring(data.left);
 
     //Skia
-    xCoords.value = withSpring((data.right - data.left))
-    yCoords.value = withSpring(data.bottom - data.top)
+    xCoords.value = withSpring(data.bottom)
+    yCoords.value = withSpring(700)
     widths.value = withSpring(150)
     heights.value = withSpring(150)
   })
@@ -70,24 +70,24 @@ export default function CameraScreenModelObject() {
     if (model == null) return
     if (actualModel == null || undefined) return
 
-    //console.log(`Frame is ${frame}\n\n`)
     const frameWidth = frame.width;
     const frameHeight = frame.height;
 
     const resized = resize(frame, {
-      scale: { width: 192, height: 192 }, pixelFormat: 'rgb', dataType: 'uint8',
+      scale: { width: 192, height: 192 },
+      pixelFormat: 'rgb',
+      dataType: 'uint8',
     })
 
     // 2. Run model with given input buffer synchronously
     const outputs = actualModel?.runSync([resized])
-    //console.log(`Got ${outputs.length} results!`)
     const detected_boxes = outputs[0]
     const detected_classes = outputs[1]
     const num_detections = outputs[2]
     const detected_scores = outputs[3]
 
     //console.log('Resultado detected_boxes ==>', `${detected_boxes}`);
-    //console.log('Resultado detected_classes ==>', `${detected_classes}`);
+    console.log('Resultado detected_classes ==>', `${detected_classes}`);
     //console.log('Resultado detected_scores ==>', `${detected_scores}`);
     //console.log('Resultado num_detections ==>', `${num_detections}`);
 
@@ -101,21 +101,21 @@ export default function CameraScreenModelObject() {
           for (let j = 0; j < 4; j++) {
             boxArr[j] = Number(detected_boxes[j]);
           }
+          const top = boxArr[3]
+          const left = boxArr[0]
+          const bottom = boxArr[1]
+          const right = boxArr[2]
           /*  
-          const top = Number(boxArr[3]) * frameWidth
-           const left = Number(boxArr[0]) * frameHeight
-           const bottom = Number(boxArr[1]) * frameHeight
-           const right = Number(boxArr[2]) * frameHeight 
            */
-          const top = screenHeight - (Number(boxArr[3]) * screenHeight)
-          const left = (Number(boxArr[0]) * screenWidth) + 10
-          const bottom = Number(boxArr[1]) * screenHeight
-          const right = screenWidth - (Number(boxArr[2]) * screenWidth) + 10
+          /*           const top = 192 - (Number(boxArr[3]) * 192)
+                    const left = (Number(boxArr[0]) * 192) + 10
+                    const bottom = Number(boxArr[1]) * 192
+                    const right = 192 - (Number(boxArr[2]) * 192) + 10 */
           //const rect = Skia.XYWHRect(left, top, right - left, bottom - top)
 
 
           const result = { bottom: bottom, left: left, right: right, top: top }
-          //  / console.log('Result:', Math.floor(result.top));
+          //  / console.log('Result:', result);
 
           return result;
         }
@@ -124,8 +124,6 @@ export default function CameraScreenModelObject() {
     const data = convertFloat32ArrayToStringArray()
     runJsUpdateView(data)
   }, [actualModel]);
-
-
 
 
   const boxOverlayStyle = useAnimatedStyle(() => ({
@@ -144,7 +142,7 @@ export default function CameraScreenModelObject() {
   return (
     <View style={styles.container}>
       <Camera
-        style={[styles.container,StyleSheet.absoluteFill]}
+        style={[styles.container, StyleSheet.absoluteFill]}
         device={device}
         isActive={isFocused}
         frameProcessor={frameProcessor}

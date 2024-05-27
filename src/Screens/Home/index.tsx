@@ -15,6 +15,9 @@ export default function Home() {
   function navigateToCamera() {
     navigate.navigate('CameraScreen')
   }
+  function navigateToCameraAnimais() {
+    navigate.navigate('CameraAnimais')
+  }
   function navigateToOCRScreen() {
     navigate.navigate('OCRScreen')
   }
@@ -41,7 +44,13 @@ export default function Home() {
       style={styles.containerButton}
       onPress={() => navigateToCamera()}
     >
-      <Title text='Camera Padrão' color={colors.shape} />
+      <Title text='IA CNH' color={colors.shape} />
+    </Pressable>
+    <Pressable
+      style={styles.containerButton}
+      onPress={() => navigateToCameraAnimais()}
+    >
+      <Title text='IA Animais' color={colors.shape} />
     </Pressable>
     <Pressable
       style={styles.containerButton}
@@ -49,12 +58,12 @@ export default function Home() {
     >
       <Title text='Reconhecimento Objetos' color={colors.shape} />
     </Pressable>
-    <Pressable
+{/*     <Pressable
       style={styles.containerButton}
       onPress={() => navigateToOCRScreen()}
     >
       <Title text='OCR Scren' color={colors.shape} />
-    </Pressable>
+    </Pressable> */}
     <Pressable
       style={[styles.containerButton, { backgroundColor: colors.primary }]}
       onPress={() => handleCheckPermissionCam()}

@@ -8,4 +8,5 @@ export type AppRoutesParams = {
     OCRScreen: any;
     BorderScreen: any;
     CameraScreenModelObject: any;
+    CameraAnimais: any;
 };
