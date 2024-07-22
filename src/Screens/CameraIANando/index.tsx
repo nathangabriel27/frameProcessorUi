@@ -5,14 +5,12 @@ import { Title } from '../../components/Title';
 import { colors } from '../../utils/theme';
 import { Camera, Templates, useCameraDevice, useCameraFormat, useFrameProcessor } from 'react-native-vision-camera';
 import { useAppNavigation } from '../../hooks/navigation';
-import { checkPermissionCam } from '../../functions/permissions';
 import { useTensorflowModel } from 'react-native-fast-tflite'
 import { useIsFocused } from '@react-navigation/native';
 import { useResizePlugin } from 'vision-camera-resize-plugin';
 import { Worklets } from 'react-native-worklets-core';
 
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import { BoxDelimiter } from './components/BoxDelimiter';
 
 type DataJSProps = {
   top: number;
@@ -22,7 +20,7 @@ type DataJSProps = {
   classBox: number;
 }
 
-export default function CameraTestScreen() {
+export default function CameraIANando() {
   const isFocused = useIsFocused();
   const navigate = useAppNavigation()
   const device = useCameraDevice('back')
@@ -30,7 +28,7 @@ export default function CameraTestScreen() {
   const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
   // Edit this model 
-  const model = useTensorflowModel(require('../../assets/Models/tflite/mymodel.tflite'))//model path CNH
+  const model = useTensorflowModel(require('../../assets/Models/tflite/cnh2.tflite'))//model path CNH
 
   const actualModel = model.state === 'loaded' ? model.model : undefined
   const { resize } = useResizePlugin()
@@ -104,9 +102,9 @@ export default function CameraTestScreen() {
     const detected_classes = outputs[3]
 
     //console.log(`Result detected_scores(${detected_scores.length}) ==>\n`, `${detected_scores}`);
-    //console.log(`Result detected_locations(${detected_locations.length}) ==>\n`, `${detected_locations}`);
+    console.log(`Result detected_locations(${detected_locations.length}) ==>\n`, `${detected_locations}`);
     //console.log(`Result number_detectetions(${number_detectetions}) ==>`, `${number_detectetions}`);
-    //console.log(`Result detected_classes(${detected_classes.length}) ==>`, `${detected_classes}\n\n`);
+    //console.log(`Result detected_classes(${detected_classes}) ==>`, `${detected_classes}\n\n`);
 
 
     // Conversion 
@@ -133,7 +131,7 @@ export default function CameraTestScreen() {
           });
         }
       }
-      console.log(results);
+    //  console.log(results);
 
       //console.log(`Classe: ${results[0].class}\n${(results[0]?.score * 100).toFixed(2)}% =>`, results[0]?.location?.top);
       if (results.length === 0) return

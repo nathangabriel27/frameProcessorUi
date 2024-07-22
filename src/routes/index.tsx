@@ -8,6 +8,7 @@ import OCRScreen from '../Screens/OCRScreen';
 import CameraScreenModelObject from '../Screens/CameraScreenModelObject';
 import CameraAnimais from '../Screens/CameraAnimais';
 import CameraTestScreen from '../Screens/CameraTestScreen';
+import CameraIANando from '../Screens/CameraIANando';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ function Routes() {
       <Stack.Screen name='CameraScreenModelObject' component={CameraScreenModelObject} />
       <Stack.Screen name='CameraAnimais' component={CameraAnimais} />
       <Stack.Screen name='CameraTestScreen' component={CameraTestScreen} />
+      <Stack.Screen name='CameraIANando' component={CameraIANando} />
 
     </Stack.Navigator>
   );

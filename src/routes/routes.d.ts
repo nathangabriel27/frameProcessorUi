@@ -10,4 +10,5 @@ export type AppRoutesParams = {
     CameraScreenModelObject: any;
     CameraAnimais: any;
     CameraTestScreen: any;
+    CameraIANando: any;
 };

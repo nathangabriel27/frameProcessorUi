@@ -27,6 +27,9 @@ export default function Home() {
   function navigateToCameraTestScreen() {
     navigate.navigate('CameraTestScreen')
   }
+  function navigateToCameraIANando() {
+    navigate.navigate('CameraIANando')
+  }
 
   function handleCheckPermissionCam() {
     checkPermissionCam()
@@ -68,12 +71,12 @@ export default function Home() {
     >
       <Title text='Camera Jordy' color={colors.shape} />
     </Pressable>
-{/*     <Pressable
-      style={styles.containerButton}
-      onPress={() => navigateToOCRScreen()}
+    <Pressable
+      style={[styles.containerButton, { backgroundColor: colors.progres}]}
+      onPress={() => navigateToCameraIANando()}
     >
-      <Title text='OCR Scren' color={colors.shape} />
-    </Pressable> */}
+      <Title text='Camera IA Nando' color={colors.shape} />
+    </Pressable> 
     <Pressable
       style={[styles.containerButton, { backgroundColor: colors.primary }]}
       onPress={() => handleCheckPermissionCam()}
