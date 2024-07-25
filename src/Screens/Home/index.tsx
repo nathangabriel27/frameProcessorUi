@@ -30,15 +30,19 @@ export default function Home() {
   function navigateToCameraIANando() {
     navigate.navigate('CameraIANando')
   }
-
   function handleCheckPermissionCam() {
     checkPermissionCam()
   }
   function handleCheckPermissionMic() {
     checkPermissionMic()
   }
+  function navigateToNativeAndroid() {
+    navigate.navigate('NativeAndroid')
+  }
+    function navigateToNativeIOS() {
+    navigate.navigate('NativeIOS')
+  }
 
-  // {"bottom": 0.6093349456787109, "left": 0.0031332969665527344, "right": 0.9968667030334473, "top": -0.009334921836853027}
   return (<>
     <Pressable
       style={styles.containerButton}
@@ -88,6 +92,18 @@ export default function Home() {
       onPress={() => handleCheckPermissionMic()}
     >
       <Title text='Checar permissão Microfone' color={colors.shape} />
+    </Pressable>
+    <Pressable
+      style={[styles.containerButton, { backgroundColor: colors.success }]}
+      onPress={() => navigateToNativeAndroid()}
+    >
+      <Title text='Componente nativo ANDROID' color={colors.shape} />
+    </Pressable>
+    <Pressable
+      style={[styles.containerButton, { backgroundColor: colors.primary_Dark }]}
+      onPress={() => navigateToNativeIOS()}
+    >
+      <Title text='Componente nativo IOS' color={colors.shape} />
     </Pressable>
   </>
   );

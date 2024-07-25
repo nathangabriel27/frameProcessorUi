@@ -886,6 +886,8 @@ PODS:
   - React-Mapbuffer (0.73.8):
     - glog
     - React-debug
+  - react-native-document-picker (9.3.0):
+    - React-Core
   - react-native-fast-tflite (1.2.0):
     - glog
     - RCT-Folly (= 2022.05.16.00)
@@ -1134,6 +1136,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector-modern`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
+  - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-fast-tflite (from `../node_modules/react-native-fast-tflite`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - "react-native-skia (from `../node_modules/@shopify/react-native-skia`)"
@@ -1227,6 +1230,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/logger"
   React-Mapbuffer:
     :path: "../node_modules/react-native/ReactCommon"
+  react-native-document-picker:
+    :path: "../node_modules/react-native-document-picker"
   react-native-fast-tflite:
     :path: "../node_modules/react-native-fast-tflite"
   react-native-safe-area-context:
@@ -1318,6 +1323,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 1729acf5ffe2d4439d698da25fddf0c75d07d1a1
   React-logger: 60afd40b183e8e6642bfd0108f1a1ad360cc665e
   React-Mapbuffer: 672a9342eb75a4d0663306e94d4dfc88aee73b93
+  react-native-document-picker: 5b97e24a7f1a1e4a50a72c540a043f32d29a70a2
   react-native-fast-tflite: 2c25e2d7e25ec9f40ad5a3bea7b1110cbe119779
   react-native-safe-area-context: dcab599c527c2d7de2d76507a523d20a0b83823d
   react-native-skia: 3ac80cc6de9c33e0a02b3a7b66c29dc6b6286211
