@@ -10,9 +10,10 @@ export default StyleSheet.create({
     containerButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
+        width: width - 50,
         backgroundColor: colors.success,
-        margin: 10,
+        marginHorizontal: 10,
+        padding: 20,
         borderRadius: 8,
     },
 });

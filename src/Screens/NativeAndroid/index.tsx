@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Dimensions, Image, Pressable, View } from 'react-native';
+import { Dimensions, Image, Pressable, ScrollView, View } from 'react-native';
 import styles from './styles';
 import { Title } from '../../components/Title';
 import { colors } from '../../utils/theme';
 import ImageBase64 from './data';
 import DocumentPicker, { DocumentPickerResponse, isInProgress, types, } from 'react-native-document-picker';
-import { applyFilter, applyFilterToBase64 } from '../../modules/FilterNativeModule';
+
+import PackageFilterModule from '../../modules/NativePackageFilter';
 
 export default function NativeAndroid() {
   const { height, width } = Dimensions.get('screen')
-  const [image, setImage] = useState<string>('null');
+  const [image, setImage] = useState<string | null>(null);
 
 
   async function handleAddAttachment() {
@@ -29,8 +30,8 @@ export default function NativeAndroid() {
 
   const handleFilterPhoto = async (uri: string) => {
     try {
-      const data = await applyFilter(uri)
-      console.log('handleFilterPhoto:', data);
+      //const data = await applyFilter(uri)
+      console.log('handleFilterPhoto:',);
     } catch (e) {
       console.error('handleFilterPhoto ERROR:', e);
     }
@@ -38,32 +39,75 @@ export default function NativeAndroid() {
 
   const handleFilterPhotoBase64 = async (base64: string) => {
     try {
-      const data = await applyFilterToBase64(base64)
-      console.log('handleFilterPhotoBase64:', data);
+      const data = await PackageFilterModule.applyFilterToBase64(base64)
+      console.log('handleFilterPhotoBase64 request:', data);
+      setImage(`data:image/jpeg;base64,${data}`)
     } catch (error) {
       console.error('handleFilterPhotoBase64:', error);
     }
   };
 
+  const handleFilterPB = async () => {
+    try {
+      const data = await PackageFilterModule.applyFilterBlack(ImageBase64)
+      //console.log('handleFilterPB:', data);
+      setImage(`data:image/jpeg;base64,${data}`)
+    } catch (error) {
+      console.error('handleFilterPB ERROR=>>', error);
+    }
+  };
+
+  const handleFilterTONSCINZA = async () => {
+    try {
+      const data = await PackageFilterModule.applyFilterToBase64(ImageBase64)
+      //console.log('handleFilterTONSCINZA:', data);
+      setImage(`data:image/jpeg;base64,${data}`)
+    } catch (error) {
+      console.error('handleFilterTONSCINZA ERROR=>>', error);
+    }
+  };
+
   return (
-    <View style={{ flex: 1, alignItems: 'center' }}>
-      <Image
-        style={{ height: width / 2, width: width / 2 }}
-        source={{ uri: `data:image/jpeg;base64,${ImageBase64}` }}
-        resizeMode={'contain'}
-      />
-      <Pressable
-        style={styles.containerButton}
-        onPress={() => handleFilterPhotoBase64(`data:image/jpeg;base64,${ImageBase64}`)}
-      >
-        <Title text='Filtro P&B' color={colors.shape} />
-      </Pressable>
-      <Pressable
+    <ScrollView style={{ flex: 1, }}>
+{/*       <Pressable
         style={styles.containerButton}
         onPress={() => handleAddAttachment()}
       >
         <Title text='Buscar imagem na galeria' color={colors.shape} />
+      </Pressable> */}
+
+      <Image
+        style={{ height: width -110,}}
+        source={{ uri: `data:image/jpeg;base64,${ImageBase64}` }}
+        resizeMode={'contain'}
+      />
+
+      {image != null &&
+        <Image
+          style={{ height: width -110 }}
+          source={{ uri: image }}
+          resizeMode={'contain'}
+        />}
+      <Pressable
+        style={styles.containerButton}
+        onPress={() => handleFilterPB()}
+      >
+        <Title text='Filtro P&B' color={colors.shape} />
       </Pressable>
-    </View>
+
+      <Pressable
+        style={styles.containerButton}
+        onPress={() => handleFilterTONSCINZA()}
+      >
+        <Title text='Filtro Tons de cinza' color={colors.shape} />
+      </Pressable>
+{/* 
+      <Pressable
+        style={styles.containerButton}
+        onPress={() => handleFilterPhotoBase64(`${ImageBase64}`)}
+      >
+        <Title text='Lista de filtros' color={colors.shape} />
+      </Pressable> */}
+    </ScrollView>
   );
 }
