@@ -15,7 +15,7 @@ export default function NativeAndroid() {
   const handleFilterPB = async () => {
     try {
       const data = await FilterSimple({data: ImageBase64, filter: 'blackAndWhite'})
-      console.log('handleFilterPB:', data);
+      //console.log('handleFilterPB:', data);
       setImage(`data:image/jpeg;base64,${data.uri}`)
     } catch (error) {
       console.error('handleFilterPB ERROR=>>', error);
@@ -25,7 +25,7 @@ export default function NativeAndroid() {
   const handleFilterTONSCINZA = async () => {
     try {
       const data = await FilterSimple({data: ImageBase64, filter: 'shadesGray'})
-      console.log('handleFilterTONSCINZA:', data);
+      //console.log('handleFilterTONSCINZA:', data);
       setImage(`data:image/jpeg;base64,${data.uri}`)
     } catch (error) {
       console.error('handleFilterTONSCINZA ERROR=>>', error);
