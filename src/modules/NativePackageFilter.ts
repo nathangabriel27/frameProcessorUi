@@ -3,14 +3,24 @@ import {
   FilterTypes,
 } from './@types/NativePackageFilter';
 
-export interface FilterProps {
+interface FilterProps {
   base64String: string;
   filter: FilterTypes;
 }
 
-export interface PackageFilterModule {
+interface PackageFilterModule {
   applyFilterToBase64: (data: string) => Promise<any>;
   applyFilterBlack: (data: string) => Promise<any>;
 }
 
-export default NativeModules.PackageFilterModule as PackageFilterModule;
+const { PackageFilterModule } = NativeModules;
+
+export const applyFilterToBase64 = (data: string): Promise<any> => {
+  return PackageFilterModule.applyFilterToBase64(data);
+};
+
+export const applyFilterBlack = (data: string): Promise<any> => {
+  return PackageFilterModule.applyFilterBlack(data);
+};
+
+export default PackageFilterModule as PackageFilterModule;

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Dimensions, Image, Pressable, ScrollView, View } from 'react-native';
+import { Dimensions, Image, Pressable, ScrollView } from 'react-native';
 import styles from './styles';
 import { Title } from '../../components/Title';
 import { colors } from '../../utils/theme';
 import ImageBase64 from './data';
-import DocumentPicker, { DocumentPickerResponse, isInProgress, types, } from 'react-native-document-picker';
+import { applyFilterBlack, applyFilterToBase64 } from '../../modules/NativePackageFilter';
 
-import PackageFilterModule from '../../modules/NativePackageFilter';
 
 export default function NativeAndroid() {
   const { height, width } = Dimensions.get('screen')
@@ -15,7 +14,7 @@ export default function NativeAndroid() {
 
   const handleFilterPB = async () => {
     try {
-      const data = await PackageFilterModule.applyFilterBlack(ImageBase64)
+      const data = await applyFilterBlack(ImageBase64)
       //console.log('handleFilterPB:', data);
       setImage(`data:image/jpeg;base64,${data}`)
     } catch (error) {
@@ -25,7 +24,7 @@ export default function NativeAndroid() {
 
   const handleFilterTONSCINZA = async () => {
     try {
-      const data = await PackageFilterModule.applyFilterToBase64(ImageBase64)
+      const data = await applyFilterToBase64(ImageBase64)
       //console.log('handleFilterTONSCINZA:', data);
       setImage(`data:image/jpeg;base64,${data}`)
     } catch (error) {

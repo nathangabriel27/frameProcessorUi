@@ -1,6 +1,6 @@
 
 export type DataType = 'base64' | 'path';
-export type FilterTypes = 'blackAndWhite' | 'shadesGray' | 'normal';
+export type FilterTypes = 'blackAndWhite' | 'shadesGray';
 export type StatusReturn = {
     status: 'success' | 'mensage';
     mensage: string; // Se === success retornar ''
