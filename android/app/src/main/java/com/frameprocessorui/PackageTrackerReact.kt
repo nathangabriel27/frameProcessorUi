@@ -11,6 +11,7 @@ class PackageTrackerReact : ReactPackage {
     override fun createNativeModules(context: ReactApplicationContext): MutableList<NativeModule> {
         return mutableListOf(PackageTrackerModule())
     }
+
     override fun createViewManagers(context: ReactApplicationContext): MutableList<ViewManager<View, ReactShadowNode<*>>> {
         return mutableListOf()
     }

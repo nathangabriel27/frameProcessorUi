@@ -27,7 +27,7 @@ class PackageFilterModule(reactContext: ReactApplicationContext) : ReactContextB
     }
             
     @ReactMethod
-    fun applyFilterBlackAndWhite(base64String: String, promise: Promise) {
+    fun applyFilterBlack(base64String: String, promise: Promise) {
         try {
             val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
             val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)

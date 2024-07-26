@@ -11,41 +11,7 @@ import PackageFilterModule from '../../modules/NativePackageFilter';
 export default function NativeAndroid() {
   const { height, width } = Dimensions.get('screen')
   const [image, setImage] = useState<string | null>(null);
-
-
-  async function handleAddAttachment() {
-    try {
-      const pickerResult: DocumentPickerResponse = await DocumentPicker.pickSingle({
-        allowMultiSelection: false,
-        presentationStyle: 'fullScreen',
-        type: [types.images],
-        copyTo: 'documentDirectory'
-      });
-      console.log('pickerResult:=>', pickerResult);
-      handleFilterPhoto(pickerResult.uri)
-    } catch (e) {
-      console.error('handleAddAttachment ERROR:', e);
-    }
-  }
-
-  const handleFilterPhoto = async (uri: string) => {
-    try {
-      //const data = await applyFilter(uri)
-      console.log('handleFilterPhoto:',);
-    } catch (e) {
-      console.error('handleFilterPhoto ERROR:', e);
-    }
-  };
-
-  const handleFilterPhotoBase64 = async (base64: string) => {
-    try {
-      const data = await PackageFilterModule.applyFilterToBase64(base64)
-      console.log('handleFilterPhotoBase64 request:', data);
-      setImage(`data:image/jpeg;base64,${data}`)
-    } catch (error) {
-      console.error('handleFilterPhotoBase64:', error);
-    }
-  };
+  const [filterSelect, setFilterSelect] = useState<string | null>(null);
 
   const handleFilterPB = async () => {
     try {
@@ -69,28 +35,26 @@ export default function NativeAndroid() {
 
   return (
     <ScrollView style={{ flex: 1, }}>
-{/*       <Pressable
-        style={styles.containerButton}
-        onPress={() => handleAddAttachment()}
-      >
-        <Title text='Buscar imagem na galeria' color={colors.shape} />
-      </Pressable> */}
 
       <Image
-        style={{ height: width -110,}}
+        style={{ height: width - 110, }}
         source={{ uri: `data:image/jpeg;base64,${ImageBase64}` }}
         resizeMode={'contain'}
       />
 
       {image != null &&
         <Image
-          style={{ height: width -110 }}
+          style={{ height: width - 110 }}
           source={{ uri: image }}
           resizeMode={'contain'}
         />}
+
+      <Title text={`Filtro : ${filterSelect === null ? 'Sem filtro' : filterSelect}`} textAlign='center' />
+
       <Pressable
         style={styles.containerButton}
         onPress={() => handleFilterPB()}
+        onPressOut={() => setFilterSelect('Preto e branco')}
       >
         <Title text='Filtro P&B' color={colors.shape} />
       </Pressable>
@@ -98,16 +62,10 @@ export default function NativeAndroid() {
       <Pressable
         style={styles.containerButton}
         onPress={() => handleFilterTONSCINZA()}
+        onPressOut={() => setFilterSelect('Tons de cinza')}
       >
         <Title text='Filtro Tons de cinza' color={colors.shape} />
       </Pressable>
-{/* 
-      <Pressable
-        style={styles.containerButton}
-        onPress={() => handleFilterPhotoBase64(`${ImageBase64}`)}
-      >
-        <Title text='Lista de filtros' color={colors.shape} />
-      </Pressable> */}
     </ScrollView>
   );
 }

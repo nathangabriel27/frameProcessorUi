@@ -8,6 +8,8 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
     containerButton: {
+        alignSelf: 'center',
+        marginTop: 4,
         justifyContent: 'center',
         alignItems: 'center',
         width: width - 50,
