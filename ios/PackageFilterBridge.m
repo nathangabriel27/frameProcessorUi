@@ -9,7 +9,6 @@
 
 @interface RCT_EXTERN_MODULE(PackageFilterModule, NSObject)
 
-RCT_EXTERN_METHOD(applyFilterBlack:(NSString)base64 resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
-RCT_EXTERN_METHOD(applyFilterToBase64:(NSString)base64 resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(FilterSimple:(NSDictionary)filterProps resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
 @end

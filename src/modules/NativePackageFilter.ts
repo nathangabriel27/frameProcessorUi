@@ -1,26 +1,17 @@
 import { NativeModules } from 'react-native';
 import {
-  FilterTypes,
+  FilterProps,
+  FilterPropsResponse
 } from './@types/NativePackageFilter';
 
-interface FilterProps {
-  base64String: string;
-  filter: FilterTypes;
-}
-
 interface PackageFilterModule {
-  applyFilterToBase64: (data: string) => Promise<any>;
-  applyFilterBlack: (data: string) => Promise<any>;
+  FilterSimple: (data: FilterProps) => Promise<FilterPropsResponse>;
 }
 
 const { PackageFilterModule } = NativeModules;
 
-export const applyFilterToBase64 = (data: string): Promise<any> => {
-  return PackageFilterModule.applyFilterToBase64(data);
-};
-
-export const applyFilterBlack = (data: string): Promise<any> => {
-  return PackageFilterModule.applyFilterBlack(data);
+export const FilterSimple = (data: FilterProps): Promise<FilterPropsResponse> => {
+  return PackageFilterModule.FilterSimple(data);
 };
 
 export default PackageFilterModule as PackageFilterModule;

@@ -17,25 +17,40 @@ class PackageFilterModule: NSObject {
   }
   
   @objc
-  func applyFilterBlack(_ base64: String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+  func FilterSimple(_ filterProps: NSDictionary, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+    guard let base64 = filterProps["data"] as? String, let filter = filterProps["filter"] as? String else {
+      reject("ERROR", "Invalid parameters", nil)
+      return
+    }
+    
     guard let image = decodeBase64ToImage(base64) else {
       reject("ERROR", "Invalid base64 string", nil)
       return
     }
-    let filteredImage = applyBlackAndWhiteFilter(image: image)
-    let base64String = encodeImageToBase64(image: filteredImage)
-    resolve(base64String)
-  }
-  
-  @objc
-  func applyFilterToBase64(_ base64: String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
-    guard let image = decodeBase64ToImage(base64) else {
-      reject("ERROR", "Invalid base64 string", nil)
+    
+    var filteredImage: UIImage
+    
+    switch filter {
+    case "blackAndWhite":
+      filteredImage = applyBlackAndWhiteFilter(image: image)
+    case "shadesGray":
+      filteredImage = applyGrayscaleFilter(image: image)
+    default:
+      reject("ERROR", "Invalid filter type", nil)
       return
     }
-    let filteredImage = applyGrayscaleFilter(image: image)
+    
     let base64String = encodeImageToBase64(image: filteredImage)
-    resolve(base64String)
+    let response: [String: Any] = [
+      "uri": base64String,
+      "filter": filter,
+      "type": "base64",
+      "status": [
+        "status": "success",
+        "message": NSNull()
+      ]
+    ]
+    resolve(response)
   }
   
   private func decodeBase64ToImage(_ base64: String) -> UIImage? {

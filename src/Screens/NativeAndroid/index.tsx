@@ -4,7 +4,7 @@ import styles from './styles';
 import { Title } from '../../components/Title';
 import { colors } from '../../utils/theme';
 import ImageBase64 from './data';
-import { applyFilterBlack, applyFilterToBase64 } from '../../modules/NativePackageFilter';
+import { FilterSimple } from '../../modules/NativePackageFilter';
 
 
 export default function NativeAndroid() {
@@ -14,9 +14,9 @@ export default function NativeAndroid() {
 
   const handleFilterPB = async () => {
     try {
-      const data = await applyFilterBlack(ImageBase64)
-      //console.log('handleFilterPB:', data);
-      setImage(`data:image/jpeg;base64,${data}`)
+      const data = await FilterSimple({data: ImageBase64, filter: 'blackAndWhite'})
+      console.log('handleFilterPB:', data);
+      setImage(`data:image/jpeg;base64,${data.uri}`)
     } catch (error) {
       console.error('handleFilterPB ERROR=>>', error);
     }
@@ -24,9 +24,9 @@ export default function NativeAndroid() {
 
   const handleFilterTONSCINZA = async () => {
     try {
-      const data = await applyFilterToBase64(ImageBase64)
-      //console.log('handleFilterTONSCINZA:', data);
-      setImage(`data:image/jpeg;base64,${data}`)
+      const data = await FilterSimple({data: ImageBase64, filter: 'shadesGray'})
+      console.log('handleFilterTONSCINZA:', data);
+      setImage(`data:image/jpeg;base64,${data.uri}`)
     } catch (error) {
       console.error('handleFilterTONSCINZA ERROR=>>', error);
     }
