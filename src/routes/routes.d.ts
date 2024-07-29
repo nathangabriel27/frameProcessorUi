@@ -11,6 +11,7 @@ export type AppRoutesParams = {
     CameraAnimais: any;
     CameraTestScreen: any;
     CameraIANando: any;
-    NativeAndroid:any;
-    NativeIOS:any;
+    NativeAndroid: any;
+    NativeIOS: any;
+    TestComponent: any;
 };

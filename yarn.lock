@@ -5229,6 +5229,7 @@ __metadata:
     react-native-vision-camera: ^4.0.5
     react-native-worklets-core: ^1.3.2
     react-test-renderer: 18.2.0
+    rn-image-filter-convert: ^0.1.2
     typescript: 5.0.4
     vision-camera-resize-plugin: ^3.1.0
   languageName: unknown
@@ -8763,6 +8764,16 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: 3ea587b981a19016297edb96d1ffe48af7e6af69660e3b371dbfc73722a73a0b0e9be5c88089fbeeb866c389c1098e07f64929c7414290504b855f54f901ab10
+  languageName: node
+  linkType: hard
+
+"rn-image-filter-convert@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "rn-image-filter-convert@npm:0.1.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: c1b4fbbae172fdcdfaf0cee6f8388617d6c1804d44344d7d31b2bcb381fcc2a196bc557379c54ef749ee492a306a1f45afe187856fac7d77ec21a0efaa041df0
   languageName: node
   linkType: hard
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable } from 'react-native';
+import { Pressable, ScrollView } from 'react-native';
 import { useAppNavigation } from '../../hooks/navigation';
 import styles from './styles';
 import { Title } from '../../components/Title';
@@ -42,8 +42,11 @@ export default function Home() {
     function navigateToNativeIOS() {
     navigate.navigate('NativeIOS')
   }
+  function navigateToTestComponent() {
+    navigate.navigate('TestComponent')
+  }
 
-  return (<>
+  return (<ScrollView>
     <Pressable
       style={styles.containerButton}
       onPress={() => navigateToRanimated()}
@@ -105,6 +108,12 @@ export default function Home() {
     >
       <Title text='Componente nativo IOS' color={colors.shape} />
     </Pressable>
-  </>
+    <Pressable
+      style={[styles.containerButton, { backgroundColor: colors.primary_Dark }]}
+      onPress={() => navigateToTestComponent()}
+    >
+      <Title text='Teste de componente' color={colors.shape} />
+    </Pressable>
+  </ScrollView>
   );
 }

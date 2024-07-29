@@ -11,6 +11,7 @@ import CameraTestScreen from '../Screens/CameraTestScreen';
 import CameraIANando from '../Screens/CameraIANando';
 import NativeAndroid from '../Screens/NativeAndroid';
 import NativeIOS from '../Screens/NativeIOS';
+import TestComponent from '../Screens/TestComponent';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,8 @@ function Routes() {
       <Stack.Screen name='CameraIANando' component={CameraIANando} />
       <Stack.Screen name='NativeAndroid' component={NativeAndroid} />
       <Stack.Screen name='NativeIOS' component={NativeIOS} />
+      <Stack.Screen name='TestComponent' component={TestComponent} />
+
     </Stack.Navigator>
   );
 }
