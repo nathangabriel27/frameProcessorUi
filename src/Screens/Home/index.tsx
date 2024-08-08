@@ -39,11 +39,14 @@ export default function Home() {
   function navigateToNativeAndroid() {
     navigate.navigate('NativeAndroid')
   }
-    function navigateToNativeIOS() {
+  function navigateToNativeIOS() {
     navigate.navigate('NativeIOS')
   }
   function navigateToTestComponent() {
     navigate.navigate('TestComponent')
+  }
+  function navigateToCameraPlugin() {
+    navigate.navigate('CameraPlugin')
   }
 
   return (<ScrollView>
@@ -58,6 +61,12 @@ export default function Home() {
       onPress={() => navigateToCamera()}
     >
       <Title text='IA CNH' color={colors.shape} />
+    </Pressable>
+    <Pressable
+      style={[styles.containerButton, { backgroundColor: colors.primary_Dark }]}
+      onPress={() => navigateToCameraPlugin()}
+    >
+      <Title text='Plugin Document' color={colors.shape} />
     </Pressable>
     <Pressable
       style={styles.containerButton}
@@ -79,11 +88,11 @@ export default function Home() {
       <Title text='Camera Jordy' color={colors.shape} />
     </Pressable>
     <Pressable
-      style={[styles.containerButton, { backgroundColor: colors.progres}]}
+      style={[styles.containerButton, { backgroundColor: colors.progres }]}
       onPress={() => navigateToCameraIANando()}
     >
       <Title text='Camera IA Nando' color={colors.shape} />
-    </Pressable> 
+    </Pressable>
     <Pressable
       style={[styles.containerButton, { backgroundColor: colors.primary }]}
       onPress={() => handleCheckPermissionCam()}

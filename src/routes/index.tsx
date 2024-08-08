@@ -12,6 +12,7 @@ import CameraIANando from '../Screens/CameraIANando';
 import NativeAndroid from '../Screens/NativeAndroid';
 import NativeIOS from '../Screens/NativeIOS';
 import TestComponent from '../Screens/TestComponent';
+import CameraPlugin from '../Screens/CameraPlugin';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,8 @@ function Routes() {
       <Stack.Screen name='NativeAndroid' component={NativeAndroid} />
       <Stack.Screen name='NativeIOS' component={NativeIOS} />
       <Stack.Screen name='TestComponent' component={TestComponent} />
+      <Stack.Screen name='CameraPlugin' component={CameraPlugin} />
+
 
     </Stack.Navigator>
   );
