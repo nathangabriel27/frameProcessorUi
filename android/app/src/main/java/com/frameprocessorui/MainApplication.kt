@@ -14,6 +14,7 @@ import com.facebook.soloader.SoLoader
 
 import com.frameprocessorui.PackageFilterReact;
 import com.frameprocessorui.PackageTrackerReact;
+import com.frameprocessorui.documentdetect.DocumentDetectPluginPackage;
 
 class MainApplication : Application(), ReactApplication {
 
@@ -25,6 +26,7 @@ class MainApplication : Application(), ReactApplication {
               // add(MyReactNativePackage())
               
                add(PackageFilterReact()) // This Module Filter add
+                add(DocumentDetectPluginPackage())
             }
 
         override fun getJSMainModuleName(): String = "index"

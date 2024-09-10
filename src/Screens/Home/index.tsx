@@ -66,7 +66,7 @@ export default function Home() {
       style={[styles.containerButton, { backgroundColor: colors.primary_Dark }]}
       onPress={() => navigateToCameraPlugin()}
     >
-      <Title text='Plugin Document' color={colors.shape} />
+      <Title text='Camera Plugin' color={colors.shape} />
     </Pressable>
     <Pressable
       style={styles.containerButton}
