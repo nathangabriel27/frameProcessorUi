@@ -13,6 +13,7 @@ import NativeAndroid from '../Screens/NativeAndroid';
 import NativeIOS from '../Screens/NativeIOS';
 import TestComponent from '../Screens/TestComponent';
 import CameraPlugin from '../Screens/CameraPlugin';
+import CameraCrop from '../Screens/CameraCrop';
 
 const Stack = createStackNavigator();
 
@@ -31,7 +32,7 @@ function Routes() {
       <Stack.Screen name='NativeIOS' component={NativeIOS} />
       <Stack.Screen name='TestComponent' component={TestComponent} />
       <Stack.Screen name='CameraPlugin' component={CameraPlugin} />
-
+      <Stack.Screen name='CameraCrop' component={CameraCrop} />
 
     </Stack.Navigator>
   );

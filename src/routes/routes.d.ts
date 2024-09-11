@@ -15,4 +15,5 @@ export type AppRoutesParams = {
     NativeIOS: any;
     TestComponent: any;
     CameraPlugin: any;
+    CameraCrop: any;
 };

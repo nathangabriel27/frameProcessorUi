@@ -5231,6 +5231,7 @@ __metadata:
     react-test-renderer: 18.2.0
     rn-image-filter-convert: ^0.1.2
     typescript: 5.0.4
+    vision-camera-cropper: ^1.3.1
     vision-camera-resize-plugin: ^3.1.0
   languageName: unknown
   linkType: soft
@@ -9817,6 +9818,18 @@ __metadata:
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: ae0123222c6df65b437669d63dfa8c36cee20a504101b2fcd97b8bf76f91259c17f9f2b4d70a1e3c6bbcee7f51b28392833adb6b2770b23b01abec84e369660b
+  languageName: node
+  linkType: hard
+
+"vision-camera-cropper@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "vision-camera-cropper@npm:1.3.1"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-vision-camera: "*"
+    react-native-worklets-core: "*"
+  checksum: d71a460408bdc43b79de6c0411e715e03c0f8ea0b8d5ccf270048880968053054d04d346aa23a682cff4f16ebbb7c19acf988dad671aa6a912a0084681252c90
   languageName: node
   linkType: hard
 

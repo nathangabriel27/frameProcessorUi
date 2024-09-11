@@ -17,4 +17,12 @@ export default StyleSheet.create({
         margin: 10,
         borderRadius: 8,
     },
+    actionPhoto:{
+        backgroundColor: "#FFF",
+        position: 'absolute',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        padding:10,
+    }
 });

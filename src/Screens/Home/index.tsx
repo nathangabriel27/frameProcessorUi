@@ -48,6 +48,9 @@ export default function Home() {
   function navigateToCameraPlugin() {
     navigate.navigate('CameraPlugin')
   }
+  function navigateToCameraCrop() {
+    navigate.navigate('CameraCrop')
+  }
 
   return (<ScrollView>
     <Pressable
@@ -67,6 +70,12 @@ export default function Home() {
       onPress={() => navigateToCameraPlugin()}
     >
       <Title text='Camera Plugin' color={colors.shape} />
+    </Pressable>
+    <Pressable
+      style={[styles.containerButton, { backgroundColor: colors.primary_Dark }]}
+      onPress={() => navigateToCameraCrop()}
+    >
+      <Title text='Camera CROP' color={colors.shape} />
     </Pressable>
     <Pressable
       style={styles.containerButton}

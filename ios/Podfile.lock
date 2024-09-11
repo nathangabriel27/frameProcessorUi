@@ -1107,6 +1107,10 @@ PODS:
   - VisionCamera/React (4.0.5):
     - React-Core
     - VisionCamera/FrameProcessors
+  - VisionCameraCropper (1.3.1):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -1171,6 +1175,7 @@ DEPENDENCIES:
   - RNScreens (from `../node_modules/react-native-screens`)
   - vision-camera-resize-plugin (from `../node_modules/vision-camera-resize-plugin`)
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
+  - VisionCameraCropper (from `../node_modules/vision-camera-cropper`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -1297,6 +1302,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/vision-camera-resize-plugin"
   VisionCamera:
     :path: "../node_modules/react-native-vision-camera"
+  VisionCameraCropper:
+    :path: "../node_modules/vision-camera-cropper"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -1362,6 +1369,7 @@ SPEC CHECKSUMS:
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   vision-camera-resize-plugin: cc79703dc2228784406f618c4fb9d0034ec03733
   VisionCamera: 4c1d19f1ac09f2f42f758e306fcf642536627357
+  VisionCameraCropper: ec91e1234327a9cee09e661da046b6411a2ee2c5
   Yoga: e5b887426cee15d2a326bdd34afc0282fc0486ad
 
 PODFILE CHECKSUM: a22caba248fbdf8fba28b948198dc653d68c5fd9

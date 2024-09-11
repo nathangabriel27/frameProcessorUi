@@ -72,21 +72,21 @@ export default function CameraPlugin() {
       y2 *= scaleY;
 
       // Aumentar ligeiramente a largura para garantir que ela seja suficiente
-      const extraWidth = 135; // Aumentar 10 pixels
+/*       const extraWidth = 135; // Aumentar 10 pixels
       x1 -= extraWidth / 2;
       x2 += extraWidth / 2;
-
+ */
       // Log para debug
-      console.log('Frame Dimensions:', frameHeight, frameWidth);
+      //console.log('Frame Dimensions:', frameHeight, frameWidth);
       console.log('Scaled Absolute Coordinates:', x1, y1, x2, y2);
-      console.log('Screen Dimensions:', windowHeight, windowWidth);
-      console.log('Frame Orientation:', orientation);
+      //console.log('Screen Dimensions:', windowHeight, windowWidth);
+      //console.log('Frame Orientation:', orientation);
 
       // Atualizar os valores compartilhados para coordenadas ajustadas à tela
-      left.value = x1;       
-      top.value = y1;        
-      right.value = x2;      
-      bottom.value = y2;     
+      left.value = x1;
+      top.value = y1;
+      right.value = x2;
+      bottom.value = y2;
 
       setResultProps(data); // Atualiza o estado com os dados de detecção
     } else {
@@ -96,10 +96,9 @@ export default function CameraPlugin() {
 
   const frameProcessor = useFrameProcessor((frame) => {
     'worklet';
-
     const data: DetectionResult = DocumentDetect(frame);
     if (data.success && data.detections.length > 0) {
-      const detection = data.detections[0];    
+      const detection = data.detections[0];
       onDetected(detection, frame.width, frame.height, frame.orientation);
     } else {
       onDetected({} as DetectionBox, frame.width, frame.height, frame.orientation);
@@ -125,10 +124,11 @@ export default function CameraPlugin() {
   return (
     <View style={styles.container}>
       <Camera
-        style={[styles.container, StyleSheet.absoluteFill]}
+        style={[StyleSheet.absoluteFill]}
         device={device}
         isActive={isFocused}
         frameProcessor={frameProcessor}
+        resizeMode='contain'
       />
       <Animated.View style={animatedBoxStyle} />
     </View>
